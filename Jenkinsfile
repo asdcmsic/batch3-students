@@ -17,9 +17,14 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('deploy') {
+        stage('Dockerize') {
             steps {
-                sh 'sudo cp -v webapp/target/webapp.war /opt/tomcat/latest/webapps/'
+                sh 'sudo docker build -t batch3-students .'
+            }
+        }
+       stage('Deploy') {
+            steps {
+                sh 'sudo docker run --name myapp it -p 8083:8080 batch3-students:latest'
             }
         }
     }

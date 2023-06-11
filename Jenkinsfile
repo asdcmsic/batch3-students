@@ -9,7 +9,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                git branch: 'main', credentialsId: 'git_credentials', url: 'https://github.com/asdcmsic/hello-students.git'
+                git branch: 'main', credentialsId: 'git_credentials', url: 'git@github.com:asdcmsic/batch3-students.git'
             }
         }
         stage('build') {

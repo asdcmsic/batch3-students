@@ -1,0 +1,10 @@
+
+## Build Image
+docker build -t batch3-students .
+
+## Run
+sudo docker run \
+  --name myapp \
+  -it \
+  -p 8083:8080 \
+  batch3-students:latest
